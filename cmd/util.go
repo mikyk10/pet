@@ -79,7 +79,7 @@ func filter(options []string, tag string) (commands []string, err error) {
 		config.Conf.General.SelectCmd, strings.Join(options, " "))
 	err = run(selectCmd, strings.NewReader(text), &buf)
 	if err != nil {
-		return nil, nil
+		return nil, err
 	}
 
 	lines := strings.Split(strings.TrimSuffix(buf.String(), "\n"), "\n")
